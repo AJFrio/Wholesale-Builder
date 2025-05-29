@@ -1,0 +1,20 @@
+[
+  {
+    "id": "drop_in_dip",
+    "name": "Drop-In Dip",
+    "description": "Drop-In Dip attachments allows you to turn the center of your rack into a dip station",
+    "price": 85
+  },
+  {
+    "id": "weight_horns",
+    "name": "Weight Horns",
+    "description": "Weight Horns allow you to store your weights along the sides of your rack",
+    "price": 125
+  },
+  {
+    "id": "band_peg",
+    "name": "Band Peg",
+    "description": "Band Pegs allow you to store your bands along the sides of your rack",
+    "price": 195
+  }
+] 
