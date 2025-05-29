@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { COUNTRY_DATA, RACK_PRICING } from './data/countryData'
 import { SKU_PRICING, RACK_COMPOSITION, generateSKU } from './data/skuData'
+import { LAYOUT_CLASSES, TEXT_CLASSES } from './styles/classes'
 import CountrySelector from './components/CountrySelector'
 import RackConfiguration from './components/RackConfiguration'
 import AttachmentsSection from './components/AttachmentsSection'
@@ -138,16 +139,16 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">International Rack Builder</h1>
-          <p className="text-blue-200">Configure your rack order for wholesale distribution</p>
+    <div className={LAYOUT_CLASSES.page}>
+      <div className={LAYOUT_CLASSES.wrapper}>
+        <div className={LAYOUT_CLASSES.center}>
+          <h1 className={TEXT_CLASSES.title}>International Rack Builder</h1>
+          <p className={TEXT_CLASSES.subtitle}>Configure your rack order for wholesale distribution</p>
         </div>
         
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className={LAYOUT_CLASSES.grid}>
           {/* Configuration Panel */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className={LAYOUT_CLASSES.configPanel}>
             <CountrySelector 
               selectedCountry={selectedCountry}
               onCountryChange={setSelectedCountry}

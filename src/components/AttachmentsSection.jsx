@@ -1,25 +1,26 @@
 import attachmentsData from '../data/attachments.json'
+import { CONTAINER_CLASSES, TEXT_CLASSES, INPUT_CLASSES, LAYOUT_CLASSES } from '../styles/classes'
 
 function AttachmentsSection({ attachments, onAttachmentChange }) {
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
-      <h2 className="text-xl font-semibold text-white mb-4">Add Attachments</h2>
+    <div className={CONTAINER_CLASSES.card}>
+      <h2 className={TEXT_CLASSES.heading}>Add Attachments</h2>
       
-      <div className="space-y-4">
+      <div className={LAYOUT_CLASSES.spacingY}>
         {attachmentsData.map(attachment => (
-          <div key={attachment.id} className="bg-white/5 rounded-lg p-4 border border-white/10">
-            <div className="flex items-start gap-4">
+          <div key={attachment.id} className={CONTAINER_CLASSES.subCard}>
+            <div className={LAYOUT_CLASSES.flexStart}>
               <div className="flex-shrink-0">
                 <img 
                   src={attachment.image} 
                   alt={attachment.name}
-                  className="w-16 h-16 p-2 bg-white/10 rounded-lg border border-white/20"
+                  className="w-16 h-16 p-2 bg-white rounded-lg border border-gray-200 shadow-sm"
                 />
               </div>
               <div className="flex-1">
-                <h3 className="font-medium text-white mb-1">{attachment.name}</h3>
-                <p className="text-sm text-blue-200 mb-2">{attachment.description}</p>
-                <p className="text-green-400 font-medium">${attachment.price}</p>
+                <h3 className={`${TEXT_CLASSES.itemName} mb-1`}>{attachment.name}</h3>
+                <p className={`${TEXT_CLASSES.description} mb-2`}>{attachment.description}</p>
+                <p className={TEXT_CLASSES.price}>${attachment.price}</p>
               </div>
               <div className="flex-shrink-0">
                 <input
@@ -28,7 +29,7 @@ function AttachmentsSection({ attachments, onAttachmentChange }) {
                   placeholder="Qty"
                   value={attachments[attachment.id] || ''}
                   onChange={(e) => onAttachmentChange(attachment.id, e.target.value)}
-                  className="w-16 bg-white/5 border border-white/20 rounded px-2 py-1 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-400 placeholder-blue-300"
+                  className={INPUT_CLASSES.small}
                 />
               </div>
             </div>

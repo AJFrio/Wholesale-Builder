@@ -1,6 +1,7 @@
 import { COUNTRY_DATA } from '../data/countryData'
 import { SKU_PRICING, RACK_COMPOSITION, generateSKU } from '../data/skuData'
 import attachmentsData from '../data/attachments.json'
+import { CONTAINER_CLASSES, TEXT_CLASSES, BUTTON_CLASSES, LAYOUT_CLASSES } from '../styles/classes'
 
 function OrderSummary({ 
   selectedCountry, 
@@ -59,29 +60,21 @@ function OrderSummary({
   }
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 h-fit">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-white">Order Summary</h2>
+    <div className={`${CONTAINER_CLASSES.card} h-fit`}>
+      <div className={`${LAYOUT_CLASSES.flexBetween} mb-4`}>
+        <h2 className={TEXT_CLASSES.heading.replace(' mb-4', '')}>Order Summary</h2>
         
         {selectedCountry && rackBreakdown.length > 0 && (
-          <div className="flex bg-white/5 rounded-lg p-1 border border-white/20">
+          <div className={CONTAINER_CLASSES.toggleContainer}>
             <button
               onClick={() => onViewModeChange('rack')}
-              className={`px-3 py-1 text-xs font-medium rounded transition-all ${
-                viewMode === 'rack' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'text-blue-200 hover:text-white'
-              }`}
+              className={viewMode === 'rack' ? BUTTON_CLASSES.toggleActive : BUTTON_CLASSES.toggle}
             >
               By Rack
             </button>
             <button
               onClick={() => onViewModeChange('itemized')}
-              className={`px-3 py-1 text-xs font-medium rounded transition-all ${
-                viewMode === 'itemized' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'text-blue-200 hover:text-white'
-              }`}
+              className={viewMode === 'itemized' ? BUTTON_CLASSES.toggleActive : BUTTON_CLASSES.toggle}
             >
               Itemized
             </button>
@@ -93,20 +86,20 @@ function OrderSummary({
         <>
           {viewMode === 'rack' ? (
             <div className="mb-4">
-              <h3 className="font-medium text-blue-200 mb-2">Rack Distribution for {COUNTRY_DATA[selectedCountry]?.name}</h3>
-              <div className="space-y-2">
+              <h3 className={TEXT_CLASSES.subHeading}>Rack Distribution for {COUNTRY_DATA[selectedCountry]?.name}</h3>
+              <div className={LAYOUT_CLASSES.spacingY2}>
                 {rackBreakdown.map((item, index) => (
-                  <div key={index} className="bg-white/5 rounded p-3 text-sm">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
+                  <div key={index} className={CONTAINER_CLASSES.item}>
+                    <div className={LAYOUT_CLASSES.flexBetween}>
+                      <div className={LAYOUT_CLASSES.flexCenter}>
                         <div className={`w-3 h-3 rounded-full ${item.color === 'black' ? 'bg-gray-800 border border-gray-600' : 'bg-red-500'}`}></div>
-                        <span className="text-white">
+                        <span className={TEXT_CLASSES.itemName}>
                           {item.quantity}x {item.postType.replace('_', '-')} {item.height}" {item.color}
                         </span>
                       </div>
-                      <span className="text-green-400">${item.totalPrice.toLocaleString()}</span>
+                      <span className={TEXT_CLASSES.price}>${item.totalPrice.toLocaleString()}</span>
                     </div>
-                    <div className="text-blue-200 text-xs ml-5">
+                    <div className={`${TEXT_CLASSES.detail} ml-5`}>
                       ${item.unitPrice} each
                     </div>
                   </div>
@@ -115,17 +108,17 @@ function OrderSummary({
             </div>
           ) : (
             <div className="mb-4">
-              <h3 className="font-medium text-blue-200 mb-2">Itemized Components</h3>
-              <div className="space-y-2">
+              <h3 className={TEXT_CLASSES.subHeading}>Itemized Components</h3>
+              <div className={LAYOUT_CLASSES.spacingY2}>
                 {calculateItemizedBreakdown().map((item, index) => (
-                  <div key={index} className="bg-white/5 rounded p-3 text-sm">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-mono text-xs">{item.sku}</span>
-                      <span className="text-green-400">${item.totalPrice.toLocaleString()}</span>
+                  <div key={index} className={CONTAINER_CLASSES.item}>
+                    <div className={`${LAYOUT_CLASSES.flexBetween} mb-1`}>
+                      <span className={TEXT_CLASSES.sku}>{item.sku}</span>
+                      <span className={TEXT_CLASSES.price}>${item.totalPrice.toLocaleString()}</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-blue-200 text-xs">{item.description}</span>
-                      <span className="text-blue-200 text-xs">
+                    <div className={LAYOUT_CLASSES.flexBetween}>
+                      <span className={TEXT_CLASSES.detail}>{item.description}</span>
+                      <span className={TEXT_CLASSES.detail}>
                         {item.quantity}x @ ${item.unitPrice}
                       </span>
                     </div>
@@ -137,17 +130,17 @@ function OrderSummary({
 
           {Object.entries(attachments).some(([_, qty]) => qty > 0) && (
             <div className="mb-4">
-              <h3 className="font-medium text-blue-200 mb-2">Attachments</h3>
-              <div className="space-y-2">
+              <h3 className={TEXT_CLASSES.subHeading}>Attachments</h3>
+              <div className={LAYOUT_CLASSES.spacingY2}>
                 {Object.entries(attachments)
                   .filter(([_, qty]) => qty > 0)
                   .map(([id, qty]) => {
                     const attachment = attachmentsData.find(a => a.id === id)
                     return (
-                      <div key={id} className="bg-white/5 rounded p-3 text-sm">
-                        <div className="flex justify-between items-center">
-                          <span className="text-white">{qty}x {attachment.name}</span>
-                          <span className="text-green-400">${(attachment.price * qty).toLocaleString()}</span>
+                      <div key={id} className={CONTAINER_CLASSES.item}>
+                        <div className={LAYOUT_CLASSES.flexBetween}>
+                          <span className={TEXT_CLASSES.itemName}>{qty}x {attachment.name}</span>
+                          <span className={TEXT_CLASSES.price}>${(attachment.price * qty).toLocaleString()}</span>
                         </div>
                       </div>
                     )
@@ -156,21 +149,21 @@ function OrderSummary({
             </div>
           )}
 
-          <div className="border-t border-white/20 pt-4">
-            <div className="flex justify-between items-center text-lg font-semibold">
-              <span className="text-white">Total Cost:</span>
-              <span className="text-green-400">${calculateTotalCost().toLocaleString()}</span>
+          <div className="border-t border-gray-200 pt-4">
+            <div className={`${LAYOUT_CLASSES.flexBetween} text-lg font-semibold`}>
+              <span className="text-gray-900">Total Cost:</span>
+              <span className="text-black">${calculateTotalCost().toLocaleString()}</span>
             </div>
           </div>
 
-          <button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105">
+          <button className={`${BUTTON_CLASSES.primary} mt-4`}>
             Request Quote
           </button>
         </>
       )}
 
       {!selectedCountry && (
-        <p className="text-blue-200 text-center">Select a country to see order breakdown</p>
+        <p className={TEXT_CLASSES.placeholder}>Select a country to see order breakdown</p>
       )}
     </div>
   )
