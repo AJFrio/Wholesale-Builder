@@ -140,10 +140,15 @@ function App() {
 
   return (
     <div className={LAYOUT_CLASSES.page}>
-      <div className={LAYOUT_CLASSES.wrapper}>
+      {/* Retro header with marquee effect */}
+      <header style={{ backgroundColor: '#000080', color: '#FFFFFF', padding: '10px', textAlign: 'center' }}>
+        <h1 style={{ fontFamily: 'Comic Sans MS, Arial, sans-serif', margin: '5px' }}>International Rack Builder</h1>
+        <marquee className="marquee">Welcome to the Retro International Rack Builder! Enjoy the classic 2000s vibe!</marquee>
+      </header>
+      
+      <div className={LAYOUT_CLASSES.wrapper} style={{ backgroundColor: '#FFFFCC', border: '2px solid #000080', padding: '20px', marginTop: '20px' }}>
         <div className={LAYOUT_CLASSES.center}>
-          <h1 className={TEXT_CLASSES.title}>International Rack Builder</h1>
-          <p className={TEXT_CLASSES.subtitle}>Configure your rack order for wholesale distribution</p>
+          <p className={TEXT_CLASSES.subtitle} style={{ fontFamily: 'Comic Sans MS, Arial, sans-serif' }}>Configure your rack order for wholesale distribution</p>
         </div>
         
         <div className={LAYOUT_CLASSES.grid}>
@@ -180,6 +185,11 @@ function App() {
           />
         </div>
       </div>
+      
+      {/* Retro footer */}
+      <footer style={{ backgroundColor: '#000080', color: '#FFFFFF', padding: '10px', textAlign: 'center', marginTop: '20px' }}>
+        <p style={{ fontFamily: 'Comic Sans MS, Arial, sans-serif', margin: '5px' }}>&copy; 2000 Retro Tech Inc.</p>
+      </footer>
     </div>
   )
 }
