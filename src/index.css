@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+/* Custom styles to emulate a 2000s website aesthetic */
+
+body {
+  background-color: #C0C0C0; /* typical grey background */
+  color: #000080; /* dark blue text */
+  font-family: 'Comic Sans MS', 'Arial', sans-serif; /* playful, retro font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Retro styled links */
+a {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FF0000;
+}
+
+/* A container style to mimic classic framed content */
+.container {
+  background-color: #FFFFCC; /* light yellow-ish background */
+  border: 2px solid #000080; 
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+}
+
+/* Header and footer styles */
+header, footer {
+  background-color: #000080; 
+  color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Example of a marquee-like element (if needed) */
+.marquee {
+  background-color: #FFCC00;
+  color: #000000;
+  padding: 5px;
+  font-weight: bold;
+}
+
+/* Additional elements typical in 2000s websites */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
