@@ -12,7 +12,7 @@ function App() {
   const [rackQuantity, setRackQuantity] = useState(1)
   const [postType, setPostType] = useState('both') // '4_post', '6_post', 'both'
   const [height, setHeight] = useState('both') // '80', '93', 'both'
-  const [color, setColor] = useState('both') // 'black', 'red', 'both'
+  const [color, setColor] = useState('both') // 'black', 'red', 'blue', 'both'
   const [attachments, setAttachments] = useState({})
   const [rackBreakdown, setRackBreakdown] = useState([])
   const [viewMode, setViewMode] = useState('rack') // 'rack' or 'itemized'
@@ -34,7 +34,7 @@ function App() {
     const heights = height === 'both' ? ['80', '93'] : [height]
 
     // Determine colors to include
-    const colors = color === 'both' ? ['black', 'red'] : [color]
+    const colors = color === 'both' ? ['black', 'red', 'blue'] : [color]
 
     // Calculate distribution with fractional values first
     const fractionalBreakdown = []
