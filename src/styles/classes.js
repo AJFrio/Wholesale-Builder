@@ -28,8 +28,8 @@ export const BUTTON_CLASSES = {
 }
 
 export const CONTAINER_CLASSES = {
-  // Main card container
-  card: "bg-white rounded-lg p-6 shadow-sm border border-gray-200",
+  // Main card container with glassmorphic styling
+  card: "bg-white/30 rounded-lg p-6 shadow-sm border border-white/30 backdrop-blur-md",
   
   // Sub-container (like attachment items)
   subCard: "bg-gray-50 rounded-lg p-4 border border-gray-200",
@@ -77,8 +77,8 @@ export const TEXT_CLASSES = {
 }
 
 export const LAYOUT_CLASSES = {
-  // Main page container
-  page: "min-h-screen bg-gray-50 p-4",
+  // Main page container with blue gradient background
+  page: "min-h-screen bg-gradient-to-r from-blue-400 to-blue-600 p-4",
   
   // Content wrapper
   wrapper: "max-w-6xl mx-auto",
@@ -103,4 +103,4 @@ export const LAYOUT_CLASSES = {
   flexBetween: "flex justify-between items-center",
   flexStart: "flex items-start gap-4",
   flexCenter: "flex items-center gap-2"
-} 
+}
