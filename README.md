@@ -1,11 +1,13 @@
 # Wholesale Builder
 
+Wholesale Builder is a web application designed to streamline and enhance wholesale business operations by providing a modern, responsive, and efficient user interface.
+
 A modern web application built with Vite, React, and Tailwind CSS.
 
 ## 🚀 Features
 
 - ⚡ **Vite** - Lightning fast build tool
-- ⚛️ **React 19** - Latest React with modern features  
+- ⚛️ **React 19** - Latest React with modern features and improvements  
 - 🎨 **Tailwind CSS** - Utility-first CSS framework
 - 📱 **Responsive Design** - Beautiful UI that works on all devices
 - 🔥 **Hot Module Replacement** - Instant feedback during development
