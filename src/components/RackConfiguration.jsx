@@ -61,6 +61,7 @@ function RackConfiguration({
           >
             <option value="black">Black</option>
             <option value="red">Red</option>
+            <option value="blue">Blue</option>
             <option value="both">Both (Auto-distribute)</option>
           </select>
         </div>
