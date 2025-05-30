@@ -11,8 +11,9 @@ export const COUNTRY_DATA = {
       "93": 0.70  // 70% 93-inch height
     },
     COLOR_DIST: {
-      "black": 0.75, // 75% black racks
-      "red": 0.25    // 25% red racks
+      "black": 0.60, // 60% black racks
+      "red": 0.25,   // 25% red racks
+      "blue": 0.15   // 15% blue racks
     }
   },
   china: {
@@ -26,8 +27,9 @@ export const COUNTRY_DATA = {
       "93": 0.40
     },
     COLOR_DIST: {
-      "black": 0.85,
-      "red": 0.15
+      "black": 0.70,
+      "red": 0.15,
+      "blue": 0.15
     }
   },
   japan: {
@@ -41,8 +43,9 @@ export const COUNTRY_DATA = {
       "93": 0.20
     },
     COLOR_DIST: {
-      "black": 0.90,
-      "red": 0.10
+      "black": 0.80,
+      "red": 0.10,
+      "blue": 0.10
     }
   }
 };
@@ -52,21 +55,25 @@ export const RACK_PRICING = {
   "4_post": {
     "80": {
       "black": 450,
-      "red": 465  // Red is slightly more expensive
+      "red": 465,  // Red is slightly more expensive
+      "blue": 455
     },
     "93": {
       "black": 520,
-      "red": 535
+      "red": 535,
+      "blue": 525
     }
   },
   "6_post": {
     "80": {
       "black": 650,
-      "red": 665
+      "red": 665,
+      "blue": 655
     },
     "93": {
       "black": 720,
-      "red": 735
+      "red": 735,
+      "blue": 725
     }
   }
-}; 
+};
