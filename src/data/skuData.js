@@ -3,14 +3,18 @@ export const SKU_PRICING = {
   // Uprights - PR-5000-UP-<height>-<color>
   "PR-5000-UP-80-MBLK": 85,
   "PR-5000-UP-80-RED": 95,
+  "PR-5000-UP-80-BLUE": 90,
   "PR-5000-UP-93-MBLK": 95,
   "PR-5000-UP-93-RED": 105,
+  "PR-5000-UP-93-BLUE": 100,
   
   // Crossmembers - PR-5000-CR-<length>-<color>
   "PR-5000-CR-30-MBLK": 45,
   "PR-5000-CR-30-RED": 50,
+  "PR-5000-CR-30-BLUE": 47,
   "PR-5000-CR-16-MBLK": 35,
-  "PR-5000-CR-16-RED": 40
+  "PR-5000-CR-16-RED": 40,
+  "PR-5000-CR-16-BLUE": 37
 };
 
 // Rack composition rules
@@ -63,8 +67,15 @@ export const RACK_COMPOSITION = {
 
 // Helper function to generate SKU from template
 export const generateSKU = (template, height, color) => {
-  const colorCode = color === 'red' ? 'RED' : 'MBLK';
+  let colorCode;
+  if (color === 'red') {
+    colorCode = 'RED';
+  } else if (color === 'blue') {
+    colorCode = 'BLUE';
+  } else {
+    colorCode = 'MBLK';
+  }
   return template
     .replace('{height}', height)
     .replace('{color}', colorCode);
-}; 
+};
