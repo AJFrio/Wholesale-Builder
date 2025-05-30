@@ -16,5 +16,59 @@
     "name": "Band Peg",
     "description": "Band Pegs allow you to store your bands along the sides of your rack",
     "price": 195
+  },
+  {
+    "id": "pull_up_bar",
+    "name": "Pull-Up Bar",
+    "description": "A sturdy pull-up bar attachment for your rack",
+    "price": 150
+  },
+  {
+    "id": "landmine_attachment",
+    "name": "Landmine Attachment",
+    "description": "Allows for rotational landmine exercises",
+    "price": 130
+  },
+  {
+    "id": "barbell_holder",
+    "name": "Barbell Holder",
+    "description": "Securely holds barbells on your rack",
+    "price": 90
+  },
+  {
+    "id": "rope_anchor",
+    "name": "Rope Anchor",
+    "description": "Anchor point for battle ropes",
+    "price": 110
+  },
+  {
+    "id": "storage_shelf",
+    "name": "Storage Shelf",
+    "description": "Shelf attachment for storing accessories",
+    "price": 75
+  },
+  {
+    "id": "dip_handles",
+    "name": "Dip Handles",
+    "description": "Handles for performing dips",
+    "price": 95
+  },
+  {
+    "id": "weight_plate_storage",
+    "name": "Weight Plate Storage",
+    "description": "Storage for weight plates",
+    "price": 140
+  },
+  {
+    "id": "band_storage_hook",
+    "name": "Band Storage Hook",
+    "description": "Hooks for storing resistance bands",
+    "price": 60
+  },
+  {
+    "id": "kettlebell_holder",
+    "name": "Kettlebell Holder",
+    "description": "Holder for kettlebells",
+    "price": 100
   }
-] 
+]
