@@ -6,6 +6,7 @@ import CountrySelector from './components/CountrySelector'
 import RackConfiguration from './components/RackConfiguration'
 import AttachmentsSection from './components/AttachmentsSection'
 import OrderSummary from './components/OrderSummary'
+import ColorSelector from './components/ColorSelector'
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState('')
@@ -179,6 +180,9 @@ function App() {
             onViewModeChange={setViewMode}
           />
         </div>
+        
+        {/* Color Selector Component at the bottom */}
+        <ColorSelector />
       </div>
     </div>
   )
