@@ -1,84 +1,56 @@
 # Wholesale Builder
 
-Wholesale Builder is a web application designed to streamline and enhance wholesale business operations by providing a modern, responsive, and efficient user interface.
+Wholesale Builder is a web application designed to streamline and enhance wholesale business operations by providing a modern, responsive, and efficient rack configuration UI.
 
-A modern web application built with Vite, React, and Tailwind CSS.
+This branch introduces a brand-new blue → green glassmorphic theme and a lightweight backend for emailing quotes.
 
-## 🚀 Features
+## ✨ What's New (Blue/Green release)
 
-- ⚡ **Vite** - Lightning fast build tool
-- ⚛️ **React 19** - Latest React with modern features and improvements  
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📱 **Responsive Design** - Beautiful UI that works on all devices
-- 🔥 **Hot Module Replacement** - Instant feedback during development
+1. 🌈 **Color Scheme Refresh**
+   • Blue primary (#2563EB) with green gradient accents (#22C55E).
+   • Glassmorphic UI (frosted panels, transparent backgrounds).
+
+2. 📨 **Backend Email Service**
+   • Express + Nodemailer server (`/server`).
+   • `/api/send-quote` endpoint forwards configurator data to your sales inbox.
+   • Environment-driven SMTP so you can plug Mailtrap, SendGrid, SES, etc.
+
+3. ⚙️ **Quote Action**
+   • "Request Quote" button prompts for your email, calls backend and shows status.
 
 ## 🛠️ Getting Started
 
 ### Prerequisites
+• Node 18+ (for optional backend)  
+• npm or yarn
 
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Development
-
-Run the development server:
-
+### Frontend
 ```bash
+npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
-
-The page will reload when you make changes. You may also see any lint errors in the console.
-
-### Building for Production
-
-Build the app for production:
-
-```bash
-npm run build
+Environment (optional): Create a `.env` file in project root to expose backend URL:
+```
+VITE_API_URL=http://localhost:8080
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+### Backend
+```
+cd server
+npm install
+npm run dev
+```
+See `server/README.md` for SMTP env vars.
 
-### Preview Production Build
-
-After building, you can preview the production build locally:
-
-```bash
-npm run preview
+## 📂 Project Structure (excerpt)
+```
+├─ src/                # React app
+├─ server/             # Express backend
+│  ├─ index.js         # Entry
+│  └─ README.md        # Setup
+└─ tailwind.config.js  # Theme with custom colors
 ```
 
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. The configuration is in `tailwind.config.js` and you can customize the theme there.
-
-## 📁 Project Structure
-
-```
-src/
-  ├── components/     # React components
-  ├── assets/         # Static assets
-  ├── App.jsx         # Main App component
-  ├── main.jsx        # App entry point
-  └── index.css       # Global styles
-```
-
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## 📝 License
-
-This project is licensed under the MIT License.
+## License
+MIT
