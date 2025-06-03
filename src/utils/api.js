@@ -1,6 +1,7 @@
 export async function sendQuote(customerEmail, payload) {
+  const base = import.meta.env.VITE_API_URL || ''
   try {
-    const res = await fetch(import.meta.env.VITE_API_URL + '/api/send-quote', {
+    const res = await fetch(base + '/api/send-quote', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ customerEmail, payload })
