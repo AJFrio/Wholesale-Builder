@@ -1,1 +1,18 @@
-@import "tailwindcss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Set the overall background with a green to blue gradient */
+body {
+  @apply bg-gradient-to-br from-green-400 to-blue-500 min-h-screen flex items-center justify-center;
+}
+
+/* Glassmorphic card style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  @apply p-6;
+}
