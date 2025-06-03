@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CONTAINER_CLASSES, TEXT_CLASSES, INPUT_CLASSES } from '../styles/classes';
 
 function ColorSelector() {
   const [color, setColor] = useState('#ffffff');
@@ -8,15 +9,18 @@ function ColorSelector() {
   };
 
   return (
-    <div style={{ marginTop: '20px', textAlign: 'center' }}>
-      <label htmlFor="colorPicker" style={{ marginRight: '10px' }}>Select Color:</label>
-      <input
-        id="colorPicker"
-        type="color"
-        value={color}
-        onChange={handleChange}
-      />
-      <span style={{ marginLeft: '10px' }}>{color}</span>
+    <div className={`${CONTAINER_CLASSES.card} mt-6`}> 
+      <label htmlFor="colorPicker" className={`${TEXT_CLASSES.label} text-center block mb-2`}>Select Color</label>
+      <div className="flex justify-center items-center">
+        <input
+          id="colorPicker"
+          type="color"
+          value={color}
+          onChange={handleChange}
+          className={INPUT_CLASSES.base + " w-16 p-1"}
+        />
+        <span className="ml-4">{color}</span>
+      </div>
     </div>
   );
 }
