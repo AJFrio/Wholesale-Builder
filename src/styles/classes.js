@@ -1,84 +1,87 @@
 // Centralized CSS classes for consistent styling across components
 
+// Tailwind glassmorphic container base
+const glassBase = "bg-white/40 backdrop-blur-md border border-white/30 shadow-lg"
+
 export const INPUT_CLASSES = {
   // Standard text/number inputs
-  base: "w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-black",
+  base: "w-full bg-white/70 border border-white/40 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary",
   
   // Small inputs (like quantity in attachments)
-  small: "w-16 bg-white border border-gray-300 rounded px-2 py-1 text-gray-900 text-sm focus:outline-none focus:ring-1 focus:ring-black focus:border-black placeholder-gray-400"
+  small: "w-16 bg-white/70 border border-white/40 rounded px-2 py-1 text-gray-900 text-sm placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
 }
 
 export const SELECT_CLASSES = {
   // Standard dropdown selects
-  base: "w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-black",
+  base: "w-full bg-white/70 border border-white/40 rounded-lg px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary",
   
   // Large selects (like country selector)
-  large: "w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+  large: "w-full bg-white/70 border border-white/40 rounded-lg px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
 }
 
 export const BUTTON_CLASSES = {
-  // Primary black button
-  primary: "w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md",
+  // Primary blue button
+  primary: "w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md",
   
   // Toggle button (inactive state)
-  toggle: "px-3 py-1 text-xs font-medium rounded transition-all text-gray-600 hover:text-gray-900",
+  toggle: "px-3 py-1 text-xs font-medium rounded transition-all text-gray-200 hover:text-white",
   
   // Toggle button (active state)
-  toggleActive: "px-3 py-1 text-xs font-medium rounded transition-all bg-black text-white shadow-sm"
+  toggleActive: "px-3 py-1 text-xs font-medium rounded transition-all bg-primary text-white shadow-sm"
 }
 
 export const CONTAINER_CLASSES = {
-  // Main card container
-  card: "bg-white rounded-lg p-6 shadow-sm border border-gray-200",
+  // Main card container (glassmorphic)
+  card: `${glassBase} rounded-lg p-6`,
   
   // Sub-container (like attachment items)
-  subCard: "bg-gray-50 rounded-lg p-4 border border-gray-200",
+  subCard: `${glassBase} rounded-lg p-4`,
   
   // Small item containers (like breakdown items)
-  item: "bg-gray-50 rounded p-3 text-sm border border-gray-200",
+  item: `${glassBase} rounded p-3 text-sm`,
   
   // Toggle button container
-  toggleContainer: "flex bg-gray-100 rounded-lg p-1 border border-gray-200"
+  toggleContainer: "flex bg-white/20 rounded-lg p-1 border border-white/30"
 }
 
 export const TEXT_CLASSES = {
   // Main headings
-  heading: "text-xl font-semibold text-gray-900 mb-4",
+  heading: "text-xl font-semibold text-white mb-4",
   
   // Page title
-  title: "text-4xl font-bold text-gray-900 mb-2",
+  title: "text-4xl font-bold text-white mb-2 drop-shadow-md",
   
   // Subtitle
-  subtitle: "text-gray-600",
+  subtitle: "text-white/80",
   
   // Section labels
-  label: "block text-sm font-medium text-gray-700 mb-2",
+  label: "block text-sm font-medium text-white mb-2",
   
   // Sub-headings
-  subHeading: "font-medium text-gray-700 mb-2",
+  subHeading: "font-medium text-white mb-2",
   
   // Price text
-  price: "text-black font-semibold",
+  price: "text-white font-semibold",
   
   // Small descriptive text
-  description: "text-sm text-gray-600",
+  description: "text-sm text-white/80",
   
   // Small detail text
-  detail: "text-gray-600 text-xs",
+  detail: "text-white/80 text-xs",
   
   // Product/item names
-  itemName: "text-gray-900 font-medium",
+  itemName: "text-white font-medium",
   
   // SKU text
-  sku: "text-gray-900 font-mono text-xs font-medium",
+  sku: "text-white font-mono text-xs font-medium",
   
   // Placeholder/empty state text
-  placeholder: "text-gray-500 text-center"
+  placeholder: "text-white/70 text-center"
 }
 
 export const LAYOUT_CLASSES = {
-  // Main page container
-  page: "min-h-screen bg-gray-50 p-4",
+  // Main page container with gradient background
+  page: "min-h-screen bg-gradient-to-br from-primary via-blue-500 to-secondary p-4",
   
   // Content wrapper
   wrapper: "max-w-6xl mx-auto",
@@ -103,4 +106,4 @@ export const LAYOUT_CLASSES = {
   flexBetween: "flex justify-between items-center",
   flexStart: "flex items-start gap-4",
   flexCenter: "flex items-center gap-2"
-} 
+}
