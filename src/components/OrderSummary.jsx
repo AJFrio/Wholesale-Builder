@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { COUNTRY_DATA } from '../data/countryData'
 import { SKU_PRICING, RACK_COMPOSITION, generateSKU } from '../data/skuData'
 import attachmentsData from '../data/attachments.json'
 import { CONTAINER_CLASSES, TEXT_CLASSES, BUTTON_CLASSES, LAYOUT_CLASSES } from '../styles/classes'
+import { sendQuote } from '../utils/api'
 
 function OrderSummary({ 
   selectedCountry, 
@@ -10,6 +12,9 @@ function OrderSummary({
   viewMode, 
   onViewModeChange 
 }) {
+  const [loading, setLoading] = useState(false)
+  const [sent, setSent] = useState(false)
+
   const calculateItemizedBreakdown = () => {
     const itemizedItems = {}
 
@@ -57,6 +62,31 @@ function OrderSummary({
       return sum + (attachment ? attachment.price * qty : 0)
     }, 0)
     return rackCost + attachmentCost
+  }
+
+  const handleSendQuote = async () => {
+    const email = prompt('Please enter your email for the quote:')
+    if (!email) return
+
+    const payload = {
+      selectedCountry,
+      rackBreakdown,
+      attachments,
+      viewMode,
+      totalCost: calculateTotalCost(),
+      itemized: calculateItemizedBreakdown(),
+      timestamp: new Date().toISOString()
+    }
+
+    try {
+      setLoading(true)
+      await sendQuote(email, payload)
+      setSent(true)
+    } catch (e) {
+      alert('Failed to send. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -149,15 +179,19 @@ function OrderSummary({
             </div>
           )}
 
-          <div className="border-t border-gray-200 pt-4">
+          <div className="border-t border-white/30 pt-4">
             <div className={`${LAYOUT_CLASSES.flexBetween} text-lg font-semibold`}>
-              <span className="text-gray-900">Total Cost:</span>
-              <span className="text-black">${calculateTotalCost().toLocaleString()}</span>
+              <span className="text-white">Total Cost:</span>
+              <span className="text-white">${calculateTotalCost().toLocaleString()}</span>
             </div>
           </div>
 
-          <button className={`${BUTTON_CLASSES.primary} mt-4`}>
-            Request Quote
+          <button 
+            disabled={loading || sent}
+            onClick={handleSendQuote}
+            className={`${BUTTON_CLASSES.primary} mt-4 ${loading || sent ? 'opacity-60 cursor-not-allowed' : ''}`}
+          >
+            {sent ? 'Quote Requested' : loading ? 'Sending...' : 'Request Quote'}
           </button>
         </>
       )}
