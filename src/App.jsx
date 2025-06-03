@@ -6,6 +6,7 @@ import CountrySelector from './components/CountrySelector'
 import RackConfiguration from './components/RackConfiguration'
 import AttachmentsSection from './components/AttachmentsSection'
 import OrderSummary from './components/OrderSummary'
+import EmailSender from './components/EmailSender'
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState('')
@@ -138,6 +139,16 @@ function App() {
     }))
   }
 
+  const configuratorData = {
+    selectedCountry,
+    rackQuantity,
+    postType,
+    height,
+    color,
+    attachments,
+    rackBreakdown
+  };
+
   return (
     <div className={LAYOUT_CLASSES.page}>
       <div className={LAYOUT_CLASSES.wrapper}>
@@ -171,13 +182,16 @@ function App() {
             />
           </div>
 
-          <OrderSummary
-            selectedCountry={selectedCountry}
-            rackBreakdown={rackBreakdown}
-            attachments={attachments}
-            viewMode={viewMode}
-            onViewModeChange={setViewMode}
-          />
+          <div>
+            <OrderSummary
+              selectedCountry={selectedCountry}
+              rackBreakdown={rackBreakdown}
+              attachments={attachments}
+              viewMode={viewMode}
+              onViewModeChange={setViewMode}
+            />
+            <EmailSender configuratorData={configuratorData} />
+          </div>
         </div>
       </div>
     </div>
